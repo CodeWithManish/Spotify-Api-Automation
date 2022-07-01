@@ -17,7 +17,7 @@ public class SpotifyApi {
 
 	@BeforeTest
 	public void getToken() {
-		token = "Bearer BQBPH4eq5qiu0kQRQwgWb-AH39XFNpfEaKvnBaE5rtpT9EClIv3KS8mcfdGSb402Tdd_ntfXZp0Xh6wIo1U_7PA9jDImSPoFmQJD2L2os8RTkgPEfbyzB_vUWZh4w3WXmPSsBhvA9vs0WaktDH_P1y0NgM6ALHkvKPprZLMpuEaVqlczhc5V_Q94ha3MjDw77OK7M5PrcMMrxWsQO73gvqYG927peEe2gG7_2Ts0GxjxQTaXTUYJQ3LppzlEqajJNXbOB2fcra2GlAQ265pe4iz7RFzQ5WaiPrUTiHE4YXMbCqs1-i5Dgym_1Igwc4G4i3nmKHrZdrnE";
+		token = "Bearer BQCBxsY-sPAtjNez2M9y5fNJxaAZOmNf-5-feVun-3L8eRPpg9RGRNWujr2lTXrUG7VS75Nb4JrfmM4FGOQoWe2nrMJQ1988Av2Hx4DJ5E8NjPaLcmPlizIutdAtzTKYulxtj8cfsiHwwS9wgNUeqzCxRMlKUPmGmr8FL8DIR_PgzZ1d8DLukCLdBgzfts6Ihk7zQPw-GlMHcaxKGA_4IUk9KDKTu0-PVwKm5C0Cy94wBcLX8sDNRzSQO-N4AMi5WrC69Iq9r19aem71DPH7VHZSEWbwJ96ol7dQMxYhqxHIQDGv_jZTdxqnaS_YtOJOtrLVXQU9El9L";
 
 	}
 
@@ -152,18 +152,7 @@ public class SpotifyApi {
 
 	}
 
-	// Change Playlist Details
-	@Test(priority = 11)
-	public void test_ChangePlaylistDetails() {
-		Response response = RestAssured.given().contentType(ContentType.JSON).accept(ContentType.JSON)
-				.header("Authorization", token)
-				.body("{\r\n" + "  \"name\": \"Api Automation Playlist1\",\r\n"
-						+ "  \"description\": \"Updated playlist description\",\r\n" + "  \"public\": false\r\n" + "}")
-				.when().put("https://api.spotify.com/v1/playlists/" + playListId + "");
-		response.prettyPrint();
-		response.then().assertThat().statusCode(200);
 
-	}
 
 	// Remove Playlist Items
 	@Test(priority = 12)
@@ -176,6 +165,7 @@ public class SpotifyApi {
 		response.prettyPrint();
 		response.then().assertThat().statusCode(200);
 	}
+	
 
 	// Track
 
